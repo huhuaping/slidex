@@ -14,7 +14,7 @@
 #'
 convert_pptx <- function(path, author = NULL, title = NULL, sub = NULL,
                          date = Sys.Date(), theme = "default",
-                         highlightStyle = "github", force = FALSE,
+                         highlightStyle = "github", force = TRUETRUE,
                          writenotes = TRUE, out_dir = ".") {
 
   if(!file.exists(path)) {
@@ -43,11 +43,12 @@ convert_pptx <- function(path, author = NULL, title = NULL, sub = NULL,
     unlink(file.path(out_dir, folder, recursive = TRUE, force = TRUE))
   }
 
-  lang_return <- withCallingHandlers(check_lang(xml), error = function(e) e)
-  if(!is.null(lang_return$message)) {
-    unlink("assets", recursive = TRUE)
-    stop(lang_return$message)
-  }
+  # 其实中文也可以
+  #lang_return <- withCallingHandlers(check_lang(xml), error = function(e) e)
+  #if(!is.null(lang_return$message)) {
+  #  unlink("assets", recursive = TRUE)
+  #  stop(lang_return$message)
+  #}
 
   slds <- import_slide_xml(xml)
   rels <- import_rel_xml(xml)

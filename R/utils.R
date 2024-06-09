@@ -39,12 +39,14 @@ extract_xml <- function(path, force = FALSE) {
   if(file.exists(file.path(basepath, "xml", "ppt", "media"))) {
     dir.create(file.path(basepath, "assets"), showWarnings = FALSE)
     dir.create(file.path(basepath, "assets", "img"), showWarnings = FALSE)
-    file.rename(file.path(basepath, "xml", "ppt", "media"),
+    # file.rename()
+    fs::dir_copy(file.path(basepath, "xml", "ppt", "media"),
                 file.path(basepath, "assets", "img"))
   }
   if(file.exists(file.path(basepath, "xml", "ppt", "embeddings"))) {
     dir.create(file.path(basepath, "assets", "data"), showWarnings = FALSE)
-    file.rename(file.path(basepath, "xml", "ppt", "embeddings"),
+    # file.rename()
+    fs::dir_copy(file.path(basepath, "xml", "ppt", "embeddings"),
                 file.path(basepath, "assets", "data"))
   }
   rels <- list.files(file.path(basepath, "xml", "ppt", "slides", "_rels"),
