@@ -38,13 +38,13 @@ extract_image <- function(sld, rel) {
     .[rel_ids %in% sld_ids] %>%
     map_chr(basename)
 
-    out <- paste0("![](assets/img/", imgs, ")")
+    out <- paste0("![](assets/img/media/", imgs, ")")
     if(length(out) == 2) {
       out <- paste0(".pull-left[", out[1], "]", "\n\n",
                     ".pull-right[", out[2], "]")
     }
     if(length(out) > 2) {
-      out <- paste0("\n---\nclass: inverse\nbackground-image: url('assets/img/",
+      out <- paste0("\n---\nclass: inverse\nbackground-image: url('assets/img/media/",
                     imgs, "')\nbackground-size: cover\n",
                     collapse = "\n")
     }

@@ -14,7 +14,7 @@
 #'
 convert_pptx <- function(path, author = NULL, title = NULL, sub = NULL,
                          date = Sys.Date(), theme = "default",
-                         highlightStyle = "github", force = TRUETRUE,
+                         highlightStyle = "github", force = TRUE,
                          writenotes = TRUE, out_dir = ".") {
 
   if(!file.exists(path)) {

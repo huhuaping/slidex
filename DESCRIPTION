@@ -52,7 +52,6 @@ Suggests:
     covr,
     kableExtra,
     knitr,
-    testthat,
-    xaringan
+    testthat
 URL: https://github.com/datalorax/slidex
 BugReports: https://github.com/datalorax/slidex/issues
